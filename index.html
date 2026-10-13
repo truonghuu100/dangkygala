@@ -1,20 +1,426 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#e8edf5">
-  <title>Đăng ký tham dự - HUST 70 năm</title>
-  <style>
-    *{box-sizing:border-box}html,body{width:100%;height:100%;margin:0;padding:0;font-family:Arial,sans-serif;background:#e8edf5}
-    .website{position:fixed;inset:0;width:100%;height:100%;border:0;display:block;background:#fff}
-    .fallback{position:fixed;z-index:10;bottom:12px;right:12px;padding:10px 14px;border-radius:8px;background:#2453c7;color:#fff;font-size:13px;font-weight:600;text-decoration:none;box-shadow:0 3px 12px #0002}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gala 70 năm HUST - Đăng ký tham dự</title>
+    
+    <!-- Tailwind CSS và FontAwesome -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body { background-color: #f0f4f8; font-family: system-ui, -apple-system, sans-serif; }
+    </style>
 </head>
 <body>
-  <iframe id="registrationWebsite" class="website" title="Đăng ký tham dự HUST 70 năm"
-    src="https://script.google.com/macros/s/AKfycbzZrgD3vv7Yt3fHVqSIJWGL3Lz4AAdiZaFtcfj9ESHdDWElp8bwIHlX4-twJRyt1-CQLw/exec"
-    allow="clipboard-read; clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-  <a class="fallback" href="https://script.google.com/macros/s/AKfycbzZrgD3vv7Yt3fHVqSIJWGL3Lz4AAdiZaFtcfj9ESHdDWElp8bwIHlX4-twJRyt1-CQLw/exec" target="_blank" rel="noopener noreferrer"></a>
+    <div class="min-h-screen relative p-4 md:p-8 flex items-center justify-center">
+        
+        <!-- Nút Admin ẩn (Góc trên phải) -->
+        <button id="adminBtn" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors z-10" title="Dành cho Ban tổ chức">
+            <i class="fas fa-cog text-xl"></i>
+        </button>
+
+        <div class="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 relative z-0">
+            <!-- Cột trái: Thông tin sự kiện -->
+            <div class="flex flex-col space-y-6">
+                <div class="flex items-center space-x-4 mb-2">
+                    <div class="w-12 h-16 bg-red-600 rounded flex items-center justify-center text-white font-bold text-xs text-center leading-tight">
+                        HUST<br/>1956
+                    </div>
+                    <div class="text-2xl font-bold text-blue-800 tracking-wider">HÒA PHÁT</div>
+                </div>
+
+                <h1 class="text-4xl md:text-5xl font-extrabold text-red-600 leading-tight">
+                    CHÀO MỪNG <br />
+                    KỶ NIỆM 70 NĂM THÀNH LẬP <br />
+                    ĐẠI HỌC BÁCH KHOA HÀ NỘI
+                </h1>
+                
+                <h2 class="text-xl font-bold text-blue-800">
+                    (15/10/1956 - 15/10/2026) <br />
+                    <span class="text-gray-600 font-normal mt-1 block">TỰ HÀO TRUYỀN THỐNG - VỮNG BƯỚC TƯƠNG LAI</span>
+                </h2>
+
+                <div class="text-gray-700 space-y-3 leading-relaxed text-sm md:text-base text-justify pr-0 md:pr-4">
+                    <p><i class="fas fa-star text-yellow-500 mr-2"></i> Đại học Bách khoa Hà Nội đang đến gần cột mốc 70 năm xây dựng và phát triển (1956 - 2026), hành trình bảy thập kỷ bồi đắp trí tuệ, bản lĩnh, khát vọng cống hiến và những dấu ấn của biết bao thế hệ thầy cô giáo, cán bộ, sinh viên và cựu sinh viên.</p>
+                    <p><i class="fas fa-heart text-pink-500 mr-2"></i> 70 năm là một dấu mốc của thời gian, cũng là câu chuyện được viết bởi mỗi thế hệ người Bách khoa. Dù đang học tập, làm việc, nghiên cứu hay đã rời mái trường xưa, chúng ta vẫn luôn là một phần trong hành trình ấy.</p>
+                    <p><i class="fas fa-flag text-blue-500 mr-2"></i> Hội Cựu sinh viên đang công tác tại <strong>Thép Hòa Phát Dung Quất</strong> trân trọng kính mời các anh/chị/em tham dự buổi tiệc Gala gặp mặt hướng đến kỷ niệm ngày hội lớn.</p>
+                </div>
+
+                <div class="bg-blue-50 rounded-xl p-5 border border-blue-100 mt-4">
+                    <div class="flex items-start mb-4">
+                        <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mt-1 mr-4 flex-shrink-0">
+                            <i class="far fa-clock"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-semibold text-gray-500 mb-1">THỜI GIAN</p>
+                            <p class="text-lg font-bold text-blue-900">18h00, ngày 15/10/2026</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mt-1 mr-4 flex-shrink-0">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-semibold text-gray-500 mb-1">ĐỊA ĐIỂM</p>
+                            <p class="font-bold text-blue-900 leading-tight">Hội trường Tầng 4, Khách sạn Harmonia,<br/>KKT Dung Quất, xã Vạn Tường, tỉnh Quảng Ngãi.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-right text-sm text-gray-600 mt-4 italic pr-4">
+                    <p>Thay mặt Ban liên lạc Hội CSV BKHN đang làm việc tại HPDQ</p>
+                    <p class="font-bold text-blue-900 mt-1 not-italic">Mr. Nguyễn Quang Tùng</p>
+                    <p>Trân trọng kính mời!</p>
+                </div>
+            </div>
+
+            <!-- Cột phải: Lịch trình & Form đăng ký -->
+            <div class="flex flex-col space-y-6">
+                
+                <!-- Khối Chương trình dự kiến -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+                    <h3 class="text-xl font-bold text-blue-800 mb-5 flex items-center">
+                        <i class="fas fa-list-ul mr-3"></i> Chương trình dự kiến
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="bg-gray-50 rounded-lg p-4 border border-gray-100">
+                            <p class="text-red-500 font-bold mb-1">18:00 - 18:30</p>
+                            <p class="text-gray-700 font-medium">Đón khách, giao lưu</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-4 border border-gray-100">
+                            <p class="text-blue-500 font-bold mb-1">18:30</p>
+                            <p class="text-gray-700 font-medium">Khai mạc chương trình</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-4 border border-gray-100">
+                            <p class="text-green-500 font-bold mb-1">19:00</p>
+                            <p class="text-gray-700 font-medium">Khai tiệc</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-4 border border-gray-100">
+                            <p class="text-purple-500 font-bold mb-1">19:15 - 22:00</p>
+                            <p class="text-gray-700 font-medium">Mini game, giao lưu văn nghệ</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Khối Form Đăng ký & QR Code -->
+                <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border-t-4 border-blue-600 relative overflow-hidden flex flex-col justify-center min-h-[350px]">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-400 via-red-500 to-blue-600"></div>
+                    
+                    <!-- Form nhập liệu -->
+                    <div id="formSection">
+                        <div class="text-center mb-8">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">Thông tin đăng ký</h3>
+                            <p class="text-gray-500">Vui lòng điền thông tin để BTC chuẩn bị chu đáo nhất.</p>
+                        </div>
+
+                        <form id="regForm" class="space-y-5">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Họ và tên <span class="text-red-500">*</span></label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="far fa-user text-gray-400"></i>
+                                    </div>
+                                    <input type="text" id="fullName" required class="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all bg-gray-50 focus:bg-white" placeholder="Nhập đầy đủ họ tên..." />
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Đơn vị <span class="text-red-500">*</span></label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="far fa-building text-gray-400"></i>
+                                    </div>
+                                    <input type="text" id="department" required class="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all bg-gray-50 focus:bg-white" placeholder="Ví dụ: NM.HRC1, P.CNTT..." />
+                                </div>
+                            </div>
+
+                            <button type="submit" id="submitBtn" class="w-full bg-[#1e40af] hover:bg-blue-800 text-white font-bold py-3.5 rounded-xl transition-colors mt-4 flex justify-center items-center">
+                                Xác nhận đăng ký <i class="fas fa-arrow-right ml-2"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Màn hình thành công & QR Zalo -->
+                    <div id="successSection" class="hidden text-center flex flex-col items-center">
+                        <div id="galaMessage" class="text-2xl font-bold text-red-600 mb-2 transition-opacity duration-1000 opacity-100">
+                            🎉 Hẹn gặp lại bạn ở Gala! 🎉
+                        </div>
+                        
+                        <h3 class="text-xl font-bold text-blue-800 mb-2 mt-2">Đăng ký thành công!</h3>
+                        <p class="text-gray-600 mb-4 text-sm">Vui lòng quét mã QR dưới đây để tham gia nhóm Zalo cập nhật thông tin sự kiện.</p>
+                        
+                        <div class="p-3 border-2 border-dashed border-blue-300 rounded-xl mb-3 bg-blue-50 inline-block">
+                            <!-- Ảnh QR Code của bạn -->
+                            <img src="./image_972984.png" alt="Zalo QR Code" class="w-48 md:w-56 h-auto rounded-lg shadow-sm mx-auto" />
+                        </div>
+                        
+                        <p class="text-sm font-medium text-gray-800 mb-6"><i class="fas fa-mobile-alt mr-2"></i>Mở Zalo quét mã để tham gia</p>
+                        
+                        <button id="registerMoreBtn" class="text-blue-600 hover:text-blue-800 underline text-sm font-medium">
+                            <i class="fas fa-undo mr-1"></i> Đăng ký thêm người khác
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Admin -->
+    <div id="adminModal" class="hidden fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-4xl max-h-[90vh] flex flex-col overflow-hidden">
+            <div class="p-4 md:p-6 border-b flex justify-between items-center bg-gray-50">
+                <h2 class="text-xl font-bold text-gray-800 flex items-center">
+                    <i class="fas fa-users-cog text-blue-600 mr-3"></i> 
+                    Danh sách Đăng ký (Admin)
+                </h2>
+                <button id="closeModalBtn" class="text-gray-500 hover:text-gray-800">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <div class="p-4 md:p-6 overflow-y-auto flex-grow">
+                <form id="loginForm" class="max-w-sm mx-auto my-10">
+                    <p class="text-center text-gray-600 mb-4">Vui lòng nhập mật khẩu quản trị</p>
+                    <input type="password" id="passwordInput" class="w-full px-4 py-2 border rounded-lg mb-4 text-center focus:ring-2 focus:ring-blue-500" placeholder="Mật khẩu..." autofocus />
+                    <button type="submit" class="w-full bg-gray-800 text-white py-2 rounded-lg hover:bg-gray-900 transition-colors">
+                        Đăng nhập
+                    </button>
+                </form>
+
+                <div id="adminContent" class="hidden">
+                    <div class="flex justify-between items-center mb-4">
+                        <div id="totalCount" class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">
+                            Tổng số: 0 người
+                        </div>
+                        <div>
+                            <button id="refreshBtn" class="mr-2 px-4 py-2 text-sm border rounded-lg hover:bg-gray-50">
+                                <i class="fas fa-sync-alt mr-2"></i>Làm mới
+                            </button>
+                            <button id="exportBtn" class="px-4 py-2 text-sm bg-green-50 text-green-700 border border-green-200 rounded-lg hover:bg-green-100 transition-colors">
+                                <i class="fas fa-file-csv mr-2"></i>Xuất file CSV
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="overflow-x-auto rounded-lg border border-gray-200">
+                        <table class="w-full text-left border-collapse min-w-[600px]">
+                            <thead>
+                                <tr class="bg-gray-50 text-gray-500 text-xs uppercase tracking-wider">
+                                    <th class="p-4 border-b font-semibold w-16">STT</th>
+                                    <th class="p-4 border-b font-semibold">Họ và tên</th>
+                                    <th class="p-4 border-b font-semibold">Đơn vị</th>
+                                    <th class="p-4 border-b font-semibold">Thời gian ĐK</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBody" class="bg-white">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="p-4 border-t bg-gray-50 flex justify-end">
+                <button id="closeModalBtn2" class="px-6 py-2 border rounded-lg text-gray-600 hover:bg-gray-100 transition-colors">
+                    Đóng
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- KẾT NỐI FIREBASE -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, getDocs, query, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyATbN2r6gLQmZ8w1mvlc6_Yj_AbqMhGXs8",
+            authDomain: "hust-a4fc1.firebaseapp.com",
+            projectId: "hust-a4fc1",
+            storageBucket: "hust-a4fc1.firebasestorage.app",
+            messagingSenderId: "902664956473",
+            appId: "1:902664956473:web:07dd62f7e9919ec550fbe8"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        
+        window.firebaseAPI = { db, collection, addDoc, getDocs, query, orderBy, serverTimestamp };
+    </script>
+
+    <!-- XỬ LÝ CHỨC NĂNG -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const regForm = document.getElementById('regForm');
+            const fullNameInput = document.getElementById('fullName');
+            const departmentInput = document.getElementById('department');
+            const submitBtn = document.getElementById('submitBtn');
+            
+            // UI cho chuyển đổi form và QR
+            const formSection = document.getElementById('formSection');
+            const successSection = document.getElementById('successSection');
+            const registerMoreBtn = document.getElementById('registerMoreBtn');
+            const galaMessage = document.getElementById('galaMessage');
+            
+            const adminBtn = document.getElementById('adminBtn');
+            const adminModal = document.getElementById('adminModal');
+            const closeModalBtn = document.getElementById('closeModalBtn');
+            const closeModalBtn2 = document.getElementById('closeModalBtn2');
+            
+            const loginForm = document.getElementById('loginForm');
+            const passwordInput = document.getElementById('passwordInput');
+            const adminContent = document.getElementById('adminContent');
+            
+            const tableBody = document.getElementById('tableBody');
+            const refreshBtn = document.getElementById('refreshBtn');
+            const exportBtn = document.getElementById('exportBtn');
+            const totalCount = document.getElementById('totalCount');
+
+            let registrationsData = [];
+            let hideMessageTimeout; // Lưu trữ bộ đếm giờ
+
+            regForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                if (!window.firebaseAPI) {
+                    alert("Hệ thống đang kết nối dữ liệu, vui lòng chờ 1-2 giây rồi bấm lại!");
+                    return;
+                }
+                
+                const name = fullNameInput.value.trim();
+                const dep = departmentInput.value.trim();
+                if(!name || !dep) return;
+
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Đang gửi...';
+                submitBtn.disabled = true;
+
+                try {
+                    await window.firebaseAPI.addDoc(
+                        window.firebaseAPI.collection(window.firebaseAPI.db, "registrations"), 
+                        {
+                            name: name,
+                            department: dep,
+                            timestamp: window.firebaseAPI.serverTimestamp(),
+                            timeString: new Date().toLocaleString('vi-VN')
+                        }
+                    );
+                    
+                    // Chuyển sang màn hình QR
+                    formSection.classList.add('hidden');
+                    successSection.classList.remove('hidden');
+                    
+                    // Khôi phục hiển thị dòng chào mừng
+                    galaMessage.style.display = 'block';
+                    // Tạo một chút độ trễ nhỏ để trình duyệt render block trước khi đổi opacity
+                    setTimeout(() => {
+                        galaMessage.style.opacity = '1';
+                    }, 50);
+
+                    // Thiết lập dòng chào mừng biến mất sau 4 giây
+                    clearTimeout(hideMessageTimeout);
+                    hideMessageTimeout = setTimeout(() => {
+                        galaMessage.style.opacity = '0';
+                        setTimeout(() => {
+                            galaMessage.style.display = 'none';
+                        }, 1000); // Đợi 1 giây để hiệu ứng mờ dần (opacity) chạy xong
+                    }, 4000);
+
+                    regForm.reset();
+                } catch (err) {
+                    console.error(err);
+                    alert("Có lỗi xảy ra khi lưu dữ liệu. Vui lòng kiểm tra kết nối mạng.");
+                } finally {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }
+            });
+
+            // Nút "Đăng ký thêm người khác"
+            registerMoreBtn.addEventListener('click', () => {
+                successSection.classList.add('hidden');
+                formSection.classList.remove('hidden');
+            });
+
+            const closeAdmin = () => adminModal.classList.add('hidden');
+            adminBtn.addEventListener('click', () => adminModal.classList.remove('hidden'));
+            closeModalBtn.addEventListener('click', closeAdmin);
+            closeModalBtn2.addEventListener('click', closeAdmin);
+
+            loginForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                if(passwordInput.value === 'admin123') {
+                    loginForm.classList.add('hidden');
+                    adminContent.classList.remove('hidden');
+                    fetchData();
+                } else {
+                    alert("Sai mật khẩu!");
+                }
+            });
+
+            async function fetchData() {
+                if (!window.firebaseAPI) return;
+                
+                tableBody.innerHTML = '<tr><td colspan="4" class="p-8 text-center text-gray-500"><i class="fas fa-spinner fa-spin text-2xl mb-2"></i><br/>Đang tải...</td></tr>';
+                
+                try {
+                    const q = window.firebaseAPI.query(
+                        window.firebaseAPI.collection(window.firebaseAPI.db, "registrations"), 
+                        window.firebaseAPI.orderBy("timestamp", "desc")
+                    );
+                    const snapshot = await window.firebaseAPI.getDocs(q);
+                    
+                    registrationsData = [];
+                    snapshot.forEach(doc => {
+                        registrationsData.push(doc.data());
+                    });
+                    
+                    totalCount.innerText = `Tổng số: ${registrationsData.length} người`;
+                    
+                    if(registrationsData.length === 0) {
+                        tableBody.innerHTML = '<tr><td colspan="4" class="p-8 text-center text-gray-500">Chưa có ai đăng ký.</td></tr>';
+                        return;
+                    }
+
+                    tableBody.innerHTML = registrationsData.map((reg, index) => `
+                        <tr class="hover:bg-gray-50 border-b transition-colors">
+                            <td class="p-4 text-gray-500">${index + 1}</td>
+                            <td class="p-4 font-medium text-gray-800">${reg.name || ''}</td>
+                            <td class="p-4 text-gray-600">${reg.department || ''}</td>
+                            <td class="p-4 text-gray-500 text-sm">${reg.timeString || ''}</td>
+                        </tr>
+                    `).join('');
+                } catch (err) {
+                    console.error(err);
+                    tableBody.innerHTML = '<tr><td colspan="4" class="p-8 text-center text-red-500">Lỗi khi tải dữ liệu</td></tr>';
+                }
+            }
+
+            refreshBtn.addEventListener('click', fetchData);
+
+            exportBtn.addEventListener('click', () => {
+                const headers = ["STT", "Họ và tên", "Đơn vị", "Thời gian ĐK"];
+                const rows = registrationsData.map((r, i) => [
+                    i + 1, 
+                    r.name.replace(/,/g, ""), 
+                    r.department.replace(/,/g, ""), 
+                    r.timeString || ""
+                ]);
+                
+                let csvContent = "data:text/csv;charset=utf-8,\uFEFF" 
+                    + headers.join(",") + "\n" 
+                    + rows.map(e => e.join(",")).join("\n");
+                
+                const encodedUri = encodeURI(csvContent);
+                const link = document.createElement("a");
+                link.setAttribute("href", encodedUri);
+                link.setAttribute("download", "Danh_sach_Gala_HUST.csv");
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            });
+        });
+    </script>
 </body>
 </html>
